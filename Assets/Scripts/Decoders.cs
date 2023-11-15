@@ -35,7 +35,7 @@ public class Decoders : MonoBehaviour
                 decodedStr += ch;
             } else if(Char.IsUpper(ch))
             {
-                newCh = upperAlphabet[(Array.IndexOf(ch) + shuffle)];
+                char newCh = Convert.ToChar(upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle)]);
             } else if(Char.IsLower(ch))
             {
                 // Here, the character must be a lower case letter in the alphabet
