@@ -7,8 +7,8 @@ using UnityEngine;
 public class Decoders : MonoBehaviour
 {
     // Pre-defining the ordered alphabets and integers for ease of access in all functions that need it
-    string[] upperAlphabet = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-    string[] lowerAlphabet = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+    char[] upperAlphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    char[] lowerAlphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     int[] integers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     // Start is called before the first frame update
@@ -35,12 +35,17 @@ public class Decoders : MonoBehaviour
                 decodedStr += ch;
             } else if(Char.IsUpper(ch))
             {
+                // Takes the index of the char in the ENCODED string, adds that (also works with negative numbers) to the index, and adds the new char in the array to 'decodedStr'
                 char newCh = Convert.ToChar(upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle)]);
+                decodedStr += newCh;
             } else if(Char.IsLower(ch))
             {
-                // Here, the character must be a lower case letter in the alphabet
-                // Move the array 'shuffle' times in the lowerAlphabet array
-                int x = 0;
+                char newCh = Convert.ToChar(lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + shuffle)]);
+                decodedStr += newCh;
+            }
+            else
+            {
+                decodedStr += ch;
             }
         }
         return decodedStr;
