@@ -15,4 +15,14 @@ public class BruteForceDecoder : MonoBehaviour
     {
         
     }
+
+    void CaesarCipher(string encodedStr)
+    {
+        if (string.IsNullOrEmpty(encodedStr))
+        {
+            return;
+        }
+
+
+    }
 }
