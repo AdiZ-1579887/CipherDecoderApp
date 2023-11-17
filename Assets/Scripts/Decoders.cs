@@ -28,7 +28,7 @@ public class Decoders : MonoBehaviour
     {
         if (string.IsNullOrEmpty(encodedStr))
         {
-            return;
+            return "";
         }
         
         string decodedStr = "";
