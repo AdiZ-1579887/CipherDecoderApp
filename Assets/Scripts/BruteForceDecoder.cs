@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Decoders;
 
 public class BruteForceDecoder : MonoBehaviour
 {
@@ -17,10 +18,10 @@ public class BruteForceDecoder : MonoBehaviour
         
     }
 
-    string[] ArrayOfWords(string encodedStr)
+    string[] ArrayOfWords(string s)
     {
         // Returns a string in which 0-9, A-Z, a-z, and ' ' are allowed, but everything else is removed.
-        return Regex.Replace(encodedStr, "[^0-9A-Za-z ]", "");
+        return Regex.Replace(s, "[^0-9A-Za-z ]", "");
     }
 
     void CaesarCipher(string encodedStr)
@@ -31,6 +32,6 @@ public class BruteForceDecoder : MonoBehaviour
         }
 
         // Loop over words in string and compare with common words from ListConstants.cs
-        
+        arrOfWords = ArrayOfWords(encodedStr)
     }
 }
