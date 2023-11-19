@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Decoders;
+using System.Text.RegularExpressions;
+using static Decoders;
 
 public class BruteForceDecoder : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class BruteForceDecoder : MonoBehaviour
         
     }
 
-    string[] ArrayOfWords(string s)
+    string ArrayOfWords(string s)
     {
         // Returns a string in which 0-9, A-Z, a-z, and ' ' are allowed, but everything else is removed.
         return Regex.Replace(s, "[^0-9A-Za-z ]", "");
@@ -32,6 +33,6 @@ public class BruteForceDecoder : MonoBehaviour
         }
 
         // Loop over words in string and compare with common words from ListConstants.cs
-        arrOfWords = ArrayOfWords(encodedStr);
+        string[] arrOfWords = ArrayOfWords(encodedStr).Split();
     }
 }
