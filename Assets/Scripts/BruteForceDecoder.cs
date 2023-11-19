@@ -17,18 +17,12 @@ public class BruteForceDecoder : MonoBehaviour
         
     }
 
-    string[] FindWords(string encodedStr)
+    string[] ArrayOfWords(string encodedStr)
     {
-        // Remove all special characters.
-        int i = 0;
-        foreach(char ch in encodedStr)
-        {
-            if(!Char.IsLetterOrDigit(ch))
-            {
-                encodedStr
-            }
-        }
+        // Returns a string in which 0-9, A-Z, a-z, and ' ' are allowed, but everything else is removed.
+        return Regex.Replace(encodedStr, "[^0-9A-Za-z ]", "");
     }
+
     void CaesarCipher(string encodedStr)
     {
         if (string.IsNullOrEmpty(encodedStr))
@@ -37,5 +31,6 @@ public class BruteForceDecoder : MonoBehaviour
         }
 
         // Loop over words in string and compare with common words from ListConstants.cs
+        
     }
 }
