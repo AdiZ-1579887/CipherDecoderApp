@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 using static Decoders;
+using static ListConstants;
 
 public class BruteForceDecoder : MonoBehaviour
 {
@@ -32,7 +33,13 @@ public class BruteForceDecoder : MonoBehaviour
             return;
         }
 
+        // shuffleScore keeps track of what int shuffle gives the best performance - ranked on how many occurances of a tenKCommonWord (ListConstants.cs) there is.
+        var shuffleScore = new Dictionary<int, int>();
+        string[] arrOfWords = ArrayOfWords(encodedStr).Split(" ");
+
         // Loop over words in string and compare with common words from ListConstants.cs
-        string[] arrOfWords = ArrayOfWords(encodedStr).Split();
+        string[] tenKCommonWords = ListConstants.tenKMostCommonWords;
+
+        // Implement a for loop between 0 (in case it is already decoded) and 26 and call Decoders.CaesarCipher() to evaluate.
     }
 }
