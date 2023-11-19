@@ -24,7 +24,7 @@ public class Decoders : MonoBehaviour
     }
 
     // Decodes an input string 'encodedStr' by moving letters forward 'shuffle' times, e.g. if shuffle = 5, a -> f
-    public string caesarCipher(string encodedStr, int shuffle)
+    public string CaesarCipher(string encodedStr, int shuffle)
     {
         if (string.IsNullOrEmpty(encodedStr))
         {

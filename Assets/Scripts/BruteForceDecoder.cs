@@ -5,13 +5,16 @@ using UnityEngine;
 using System.Text.RegularExpressions;
 using static Decoders;
 using static ListConstants;
+using Unity.Collections.LowLevel.Unsafe;
+using System.Linq;
 
 public class BruteForceDecoder : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        Decoders decoder = new Decoders();
+        ListConstants listConstants = new ListConstants();
     }
 
     // Update is called once per frame
@@ -26,20 +29,35 @@ public class BruteForceDecoder : MonoBehaviour
         return Regex.Replace(s, "[^0-9A-Za-z ]", "");
     }
 
-    void CaesarCipher(string encodedStr)
+    void BruteForceCaesarCipher(string encodedStr, Decoders decoder, ListConstants listConstants)
     {
         if (string.IsNullOrEmpty(encodedStr))
         {
             return;
         }
 
-        // shuffleScore keeps track of what int shuffle gives the best performance - ranked on how many occurances of a tenKCommonWord (ListConstants.cs) there is.
+        // shuffleScore keeps track of what int shuffle gives the best performance - ranked on how many occurances of a tenKMostCommonWord(s) (ListConstants.cs) there is.
         var shuffleScore = new Dictionary<int, int>();
         string[] arrOfWords = ArrayOfWords(encodedStr).Split(" ");
 
-        // Loop over words in string and compare with common words from ListConstants.cs
-        string[] tenKCommonWords = ListConstants.tenKMostCommonWords;
+        // We must loop over words in string and compare with common words from ListConstants.cs
+        // Grabbing commonWords string[] from ListConstants.cs here
+        string[] commonWords = listConstants.tenKMostCommonWords;
 
         // Implement a for loop between 0 (in case it is already decoded) and 26 and call Decoders.CaesarCipher() to evaluate.
+        for(int i = 0; i <= 26; i++)
+        {
+            // The number of words which are found in the commonWords list.
+            int score = 0;
+
+            foreach(string word in arrOfWords)
+            {
+                if(commonWords.Contains(decoder.CaesarCipher(word, i)))
+                {
+                    score++;
+                }
+
+            }
+        }
     }
 }
