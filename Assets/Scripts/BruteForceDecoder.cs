@@ -32,6 +32,6 @@ public class BruteForceDecoder : MonoBehaviour
         }
 
         // Loop over words in string and compare with common words from ListConstants.cs
-        arrOfWords = ArrayOfWords(encodedStr)
+        arrOfWords = ArrayOfWords(encodedStr);
     }
 }
