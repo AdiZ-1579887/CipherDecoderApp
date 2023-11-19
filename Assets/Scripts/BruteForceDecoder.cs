@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,18 @@ public class BruteForceDecoder : MonoBehaviour
         
     }
 
+    string[] FindWords(string encodedStr)
+    {
+        // Remove all special characters.
+        int i = 0;
+        foreach(char ch in encodedStr)
+        {
+            if(!Char.IsLetterOrDigit(ch))
+            {
+                encodedStr
+            }
+        }
+    }
     void CaesarCipher(string encodedStr)
     {
         if (string.IsNullOrEmpty(encodedStr))
@@ -23,6 +36,6 @@ public class BruteForceDecoder : MonoBehaviour
             return;
         }
 
-        
+        // Loop over words in string and compare with common words from ListConstants.cs
     }
 }
