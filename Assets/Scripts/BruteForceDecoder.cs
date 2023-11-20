@@ -23,7 +23,7 @@ public class BruteForceDecoder : MonoBehaviour
         
     }
 
-    string ArrayOfWords(string s)
+    string RemoveSpecialCharacters(string s)
     {
         // Returns a string in which 0-9, A-Z, a-z, and ' ' are allowed, but everything else is removed.
         return Regex.Replace(s, "[^0-9A-Za-z ]", "");
@@ -38,11 +38,12 @@ public class BruteForceDecoder : MonoBehaviour
 
         // shuffleScore keeps track of what int shuffle gives the best performance - ranked on how many occurances of a tenKMostCommonWord(s) (ListConstants.cs) there is.
         var shuffleScore = new Dictionary<int, int>();
-        string[] arrOfWords = ArrayOfWords(encodedStr).Split(" ");
+        // arrOfWords stores a string[] of all the words in the encoded string
+        string[] arrOfWords = RemoveSpecialCharacters(encodedStr).Split(" ");
 
         // We must loop over words in string and compare with common words from ListConstants.cs
         // Grabbing commonWords string[] from ListConstants.cs here
-        string[] commonWords = listConstants.tenKMostCommonWords;
+        string[] commonWords = listConstants.tenKCommonWords;
 
         // Implement a for loop between 0 (in case it is already decoded) and 26 and call Decoders.CaesarCipher() to evaluate.
         for(int i = 0; i <= 26; i++)
