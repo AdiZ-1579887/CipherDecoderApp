@@ -43,7 +43,7 @@ public class BruteForceDecoder : MonoBehaviour
 
         // We must loop over words in string and compare with common words from ListConstants.cs
         // Grabbing commonWords string[] from ListConstants.cs here
-        string[] commonWords = listConstants.tenKCommonWords;
+        Dictionary<int, HashSet<string>> commonWords = listConstants.commonWordsDICT;
 
         // Implement a for loop between 0 (in case it is already decoded) and 26 and call Decoders.CaesarCipher() to evaluate.
         for(int i = 0; i <= 26; i++)
@@ -53,7 +53,7 @@ public class BruteForceDecoder : MonoBehaviour
 
             foreach(string word in arrOfWords)
             {
-                if(commonWords.Contains(decoder.CaesarCipher(word, i)))
+                if (commonWords[word.Length].Contains(decoder.CaesarCipher(word, i)))
                 {
                     score++;
                 }
