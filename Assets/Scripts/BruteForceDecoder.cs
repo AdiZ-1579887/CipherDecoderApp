@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine;
+
 using static Decoders;
 using static ListConstants;
-using Unity.Collections.LowLevel.Unsafe;
-using System.Linq;
 
 public class BruteForceDecoder : MonoBehaviour
 {
