@@ -1,12 +1,25 @@
+using System;
 using UnityEngine;
-
-using static Decoders;
 
 public class DecodeButton : MonoBehaviour
 {
-    void Start()
+    ReadStringInput plaintextStringInput;
+    ReadStringInput shuffleStringInput;
+
+    void Awake()
     {
-        Decoders decoder = new Decoders();
+        // Instantiate GameObjects for each of the text box inputs (for the plaintext and the shuffle).
+        GameObject plaintextGameObject = new GameObject("ReadStringInput");
+        plaintextStringInput = gameObject.AddComponent<ReadStringInput>();
+
+        GameObject shuffleGameObject = new GameObject("ReadStringInput");
+        shuffleStringInput = gameObject.AddComponent<ReadStringInput>();
     }
 
+    void OnClick()
+    {
+        int shuffle;
+        Int32.TryParse(shuffleStringInput.input, out shuffle);
+        string output = Decoders.CaesarCipher(plaintextStringInput.input, shuffle);
+    }
 }

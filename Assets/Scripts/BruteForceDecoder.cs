@@ -2,9 +2,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-using static Decoders;
-using static ListConstants;
-
 public class BruteForceDecoder : MonoBehaviour
 {
     // Start is called before the first frame update

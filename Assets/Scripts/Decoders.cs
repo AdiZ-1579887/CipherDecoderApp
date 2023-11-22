@@ -1,17 +1,21 @@
 using System;
 using UnityEngine;
 
+
 public class Decoders : MonoBehaviour
 {
     // Pre-defining the ordered alphabets and integers for ease of access in all functions that need it
-    char[] upperAlphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    char[] lowerAlphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-    int[] integers = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    char[] upperAlphabet;
+    char[] lowerAlphabet;
+    int[] integers;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Fetch lists from ListConstants.cs to ensure that it is fully updated.
+        upperAlphabet = ListConstants.upperAlphabet;
+        lowerAlphabet = ListConstants.lowerAlphabet;
+        integers = ListConstants.integers;
     }   
 
     // Update is called once per frame
