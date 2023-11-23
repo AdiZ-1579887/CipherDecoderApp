@@ -6,14 +6,21 @@ public class DecodeButton : MonoBehaviour
 {
     [SerializeField] TMP_InputField plaintextInputField;
     [SerializeField] TMP_InputField shuffletextInputField;
+    [SerializeField] TMP_Text outputTextBox;
 
     Encoders encoderScript;
 
+    private void Start()
+    {
+        encoderScript = new Encoders();
+    }
+
     public void OnClick()
     {
-        // int shuffle;
-        Debug.Log(plaintextInputField.text);
-        // Int32.TryParse(shuffleStringInput.input, out shuffle);
-        // string output = decoderScript.CaesarCipher(plaintextStringInput.input, shuffle);
+        int shuffle;
+        Int32.TryParse(shuffletextInputField.text, out shuffle);
+        string output = encoderScript.ShiftCaesarCipher(plaintextInputField.text, shuffle);
+
+        outputTextBox.text = output;
     }
 }

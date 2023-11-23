@@ -16,8 +16,6 @@ public class BruteForceDecoder : MonoBehaviour
         lowerAlphabet = ListConstants.lowerAlphabet;
         frequencyOrderedAlphabet = ListConstants.frequencyOrderedAlphabet;
         integers = ListConstants.integers;
-
-        Encoders encoder = new Encoders();
     }
 
     string RemoveSpecialCharacters(string s)

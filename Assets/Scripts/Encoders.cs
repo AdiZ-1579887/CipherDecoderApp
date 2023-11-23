@@ -38,14 +38,14 @@ public class Encoders : MonoBehaviour
             if(Char.IsUpper(ch))
             {
                 // Takes the index of the char in the ENCODED string, adds that (also works with negative numbers) to the index, and adds the new char in the array to 'decodedStr'
-                char newCh = Convert.ToChar(upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle)]);
+                char newCh = upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle)];
                 encodedStr += newCh;
                 continue;
             }
             
             if(Char.IsLower(ch))
             {
-                char newCh = Convert.ToChar(lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + shuffle)]);
+                char newCh = lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + shuffle)];
                 encodedStr += newCh;
                 continue;
             }
@@ -53,6 +53,7 @@ public class Encoders : MonoBehaviour
             // If the character is not a digit or alphabetical character, add it without shuffling it.
             encodedStr += ch;
         }
+
         return encodedStr;
     }
 }
