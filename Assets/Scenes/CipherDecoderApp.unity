@@ -922,7 +922,6 @@ RectTransform:
   - {fileID: 1176285826}
   - {fileID: 1864781866}
   - {fileID: 1036805126}
-  - {fileID: 2048073632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1333,8 +1332,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1 &1731798646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,7 +1705,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048073631}
   m_CullTransparentMesh: 1
->>>>>>> parent of 9f3889c (CRASHING - Changed TMP Input Field Objects)
+
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
