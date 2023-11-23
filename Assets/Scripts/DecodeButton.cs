@@ -9,11 +9,6 @@ public class DecodeButton : MonoBehaviour
 
     Decoders decoderScript;
 
-    void Awake()
-    {
-        
-    }
-
     public void OnClick()
     {
         // int shuffle;

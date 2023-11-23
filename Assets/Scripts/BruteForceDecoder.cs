@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class BruteForceDecoder : MonoBehaviour
 {
+    IList<char> upperAlphabet;
+    IList<char> lowerAlphabet;
+    IList<char> frequencyOrderedAlphabet;
+    IList<int> integers;
+    
     // Start is called before the first frame update
     void Start()
     {
-        Decoders decoder = new Decoders();
-        ListConstants listConstants = new ListConstants();
-    }
+        upperAlphabet = ListConstants.upperAlphabet;
+        lowerAlphabet = ListConstants.lowerAlphabet;
+        frequencyOrderedAlphabet = ListConstants.frequencyOrderedAlphabet;
+        integers = ListConstants.integers;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Decoders decoder = new Decoders();
     }
 
     string RemoveSpecialCharacters(string s)
@@ -23,13 +26,14 @@ public class BruteForceDecoder : MonoBehaviour
         return Regex.Replace(s, "[^0-9A-Za-z ]", "");
     }
 
-    void BruteForceCaesarCipher(string encodedStr, Decoders decoder, ListConstants listConstants)
+    public IList<string> BruteForceCaesarCipher(string encodedStr, Decoders decoder, ListConstants listConstants)
     {
         if (string.IsNullOrEmpty(encodedStr))
         {
-            return;
+            return new List<string>();
         }
 
+        /* OLD CODE
         // shuffleScore keeps track of what int shuffle gives the best performance - ranked on how many occurances of a tenKMostCommonWord(s) (ListConstants.cs) there is.
         var shuffleScore = new Dictionary<int, int>();
         // arrOfWords stores a string[] of all the words in the encoded string
@@ -54,5 +58,12 @@ public class BruteForceDecoder : MonoBehaviour
 
             }
         }
+        */
+
+
+
+        // Temporary: to satisfy 'Not all code paths return a string' error
+        IList<string> x = new List<string>();
+        return x;
     }
 }

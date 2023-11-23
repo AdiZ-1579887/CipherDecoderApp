@@ -18,42 +18,41 @@ public class Decoders : MonoBehaviour
         integers = ListConstants.integers;
     }   
 
-    // Update is called once per frame
-    void Update()
+    public string EncodeCaesarCipher(string plaintext, int shuffle)
     {
-        
-    }
-
-    // Decodes an input string 'encodedStr' by moving letters forward 'shuffle' times, e.g. if shuffle = 5, a -> f
-    public string CaesarCipher(string encodedStr, int shuffle)
-    {
-        if (string.IsNullOrEmpty(encodedStr))
+        if (string.IsNullOrEmpty(plaintext))
         {
             return "";
         }
-        
-        string decodedStr = "";
-        foreach(char ch in encodedStr)
+
+        string encodedStr = "";
+        foreach(char ch in plaintext)
         {
             // Digits remain unchanged
             if(Char.IsDigit(ch))
             {
-                decodedStr += ch;
-            } else if(Char.IsUpper(ch))
+                encodedStr += ch;
+                continue;
+            }
+            
+            if(Char.IsUpper(ch))
             {
                 // Takes the index of the char in the ENCODED string, adds that (also works with negative numbers) to the index, and adds the new char in the array to 'decodedStr'
                 char newCh = Convert.ToChar(upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle)]);
-                decodedStr += newCh;
-            } else if(Char.IsLower(ch))
+                encodedStr += newCh;
+                continue;
+            }
+            
+            if(Char.IsLower(ch))
             {
                 char newCh = Convert.ToChar(lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + shuffle)]);
-                decodedStr += newCh;
+                encodedStr += newCh;
+                continue;
             }
-            else
-            {
-                decodedStr += ch;
-            }
+            
+            // If the character is not a digit or alphabetical character, add it without shuffling it.
+            encodedStr += ch;
         }
-        return decodedStr;
+        return encodedStr;
     }
 }
