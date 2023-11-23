@@ -12,6 +12,7 @@ public class DecodeButton : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log($"DecodeButton on {name}");
         encoderScript = new Encoders();
     }
 
