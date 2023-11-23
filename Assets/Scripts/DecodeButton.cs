@@ -10,8 +10,9 @@ public class DecodeButton : MonoBehaviour
 
     Encoders encoderScript;
 
-    private void Start()
+    void Start()
     {
+        // encoderScript = gameObject.AddComponent<Encoders>();
         encoderScript = new Encoders();
     }
 
