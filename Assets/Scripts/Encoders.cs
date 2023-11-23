@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-public class Decoders : MonoBehaviour
+public class Encoders : MonoBehaviour
 {
     // Pre-defining the ordered alphabets and integers for ease of access in all functions that need it
     char[] upperAlphabet;
@@ -18,7 +18,7 @@ public class Decoders : MonoBehaviour
         integers = ListConstants.integers;
     }   
 
-    public string EncodeCaesarCipher(string plaintext, int shuffle)
+    public string ShiftCaesarCipher(string plaintext, int shuffle)
     {
         if (string.IsNullOrEmpty(plaintext))
         {

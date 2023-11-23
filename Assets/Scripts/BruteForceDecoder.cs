@@ -17,7 +17,7 @@ public class BruteForceDecoder : MonoBehaviour
         frequencyOrderedAlphabet = ListConstants.frequencyOrderedAlphabet;
         integers = ListConstants.integers;
 
-        Decoders decoder = new Decoders();
+        Encoders encoder = new Encoders();
     }
 
     string RemoveSpecialCharacters(string s)
@@ -26,7 +26,7 @@ public class BruteForceDecoder : MonoBehaviour
         return Regex.Replace(s, "[^0-9A-Za-z ]", "");
     }
 
-    public IList<string> BruteForceCaesarCipher(string encodedStr, Decoders decoder, ListConstants listConstants)
+    public IList<string> BruteForceCaesarCipher(string encodedStr, Encoders decoder)
     {
         if (string.IsNullOrEmpty(encodedStr))
         {

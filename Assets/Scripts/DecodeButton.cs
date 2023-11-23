@@ -7,7 +7,7 @@ public class DecodeButton : MonoBehaviour
     [SerializeField] TMP_InputField plaintextInputField;
     [SerializeField] TMP_InputField shuffletextInputField;
 
-    Decoders decoderScript;
+    Encoders encoderScript;
 
     public void OnClick()
     {
