@@ -2,21 +2,20 @@ using System;
 using UnityEngine;
 
 
-public class Encoders : MonoBehaviour
+public class Encoders
 {
     // Pre-defining the ordered alphabets and integers for ease of access in all functions that need it
     char[] upperAlphabet;
     char[] lowerAlphabet;
     int[] integers;
 
-    // Start is called before the first frame update
-    void Start()
+    public Encoders()
     {
         // Fetch lists from ListConstants.cs to ensure that it is fully updated.
         upperAlphabet = ListConstants.upperAlphabet;
         lowerAlphabet = ListConstants.lowerAlphabet;
         integers = ListConstants.integers;
-    }   
+    }
 
     public string ShiftCaesarCipher(string plaintext, int shuffle)
     {
