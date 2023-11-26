@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-
 public class Encoders
 {
     // Pre-defining the ordered alphabets and integers for ease of access in all functions that need it
@@ -25,6 +24,7 @@ public class Encoders
         }
 
         string encodedStr = "";
+        shuffle = shuffle % 26;
         foreach(char ch in plaintext)
         {
             // Digits remain unchanged
