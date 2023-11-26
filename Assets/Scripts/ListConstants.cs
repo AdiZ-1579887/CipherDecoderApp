@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Animation;
 using UnityEngine;
 
-public class ListConstants : MonoBehaviour
+public class ListConstants
 {
     public static char[] upperAlphabet = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
     public static char[] lowerAlphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
@@ -13,13 +11,12 @@ public class ListConstants : MonoBehaviour
     public static List<string> commonWordsLIST = new List<string>() { "hello", "world" };
     public Dictionary<int, HashSet<string>> commonWordsDict;
 
-    // When the app is started, the array of words is converted to a dictionary with the words' lengths.
-    void Start()
+    public ListConstants()
     {
         commonWordsDict = WordsToCharCountHashSet(commonWordsLIST);
     }
 
-    public static Dictionary<int, HashSet<string>> WordsToCharCountHashSet(IList<string> commonWords)
+    static Dictionary<int, HashSet<string>> WordsToCharCountHashSet(IList<string> commonWords)
     {
         // Dictionary to hold the words as the values and their lengths as the keys.
         var dict = new Dictionary<int, HashSet<string>>();

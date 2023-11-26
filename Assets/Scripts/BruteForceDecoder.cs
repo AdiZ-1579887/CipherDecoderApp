@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Windows;
+using System.Linq;
+using System;
 
-public class BruteForceDecoder : MonoBehaviour
+public class BruteForceDecoder
 {
     IList<char> upperAlphabet;
     IList<char> lowerAlphabet;
     IList<char> frequencyOrderedAlphabet;
     IList<int> integers;
     
-    // Start is called before the first frame update
-    void Start()
+    public BruteForceDecoder()
     {
         upperAlphabet = ListConstants.upperAlphabet;
         lowerAlphabet = ListConstants.lowerAlphabet;
@@ -24,44 +27,36 @@ public class BruteForceDecoder : MonoBehaviour
         return Regex.Replace(s, "[^0-9A-Za-z ]", "");
     }
 
-    public IList<string> BruteForceCaesarCipher(string encodedStr, Encoders decoder)
+    // Function will return each decoded string alongside its score in terms of how many English words were found in it
+    public Dictionary<string, int> BruteForceCaesarCipher(string encodedStr, Encoders decoder)
     {
         if (string.IsNullOrEmpty(encodedStr))
         {
-            return new List<string>();
+            return new Dictionary<string, int>();
         }
 
-        /* OLD CODE
-        // shuffleScore keeps track of what int shuffle gives the best performance - ranked on how many occurances of a tenKMostCommonWord(s) (ListConstants.cs) there is.
-        var shuffleScore = new Dictionary<int, int>();
-        // arrOfWords stores a string[] of all the words in the encoded string
-        string[] arrOfWords = RemoveSpecialCharacters(encodedStr).Split(" ");
+        Dictionary<string, int> dict = new Dictionary<string, int>();
+        Encoders encoder = new Encoders();
 
-        // We must loop over words in string and compare with common words from ListConstants.cs
-        // Grabbing commonWords string[] from ListConstants.cs here
-        Dictionary<int, HashSet<string>> commonWords = listConstants.commonWordsDICT;
-
-        // Implement a for loop between 0 (in case it is already decoded) and 26 and call Decoders.CaesarCipher() to evaluate.
-        for(int i = 0; i <= 26; i++)
+        // Find the index of the most common char (letters only) in the array lowerAlphabet
+        char frequentLetter = Char.ToLower(Regex.Replace(encodedStr, "[^A-Za-z ]", "").GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key);
+        int frequentLetterIndex = Array.IndexOf(lowerAlphabet.ToArray(), frequentLetter);
+        for (int i = 0; i <= 5; i++)
         {
-            // The number of words which are found in the commonWords list.
+            // Find the index of the char from frequencyOrderedAlphabet that we are using for this run of the loop
+            char letter = frequencyOrderedAlphabet[i];
+            int letterIndex = Array.IndexOf(lowerAlphabet.ToArray(), letter);
+
+            // Find the difference by which the encoded string must be shuffled to be decoded
+            int difference = letterIndex - frequentLetterIndex;
+
+            string tempStr = encoder.ShiftCaesarCipher(encodedStr, difference);
             int score = 0;
+            // CHECK HOW MANY ENGLISH WORDS ARE IN STRING
 
-            foreach(string word in arrOfWords)
-            {
-                if (commonWords[word.Length].Contains(decoder.CaesarCipher(word, i)))
-                {
-                    score++;
-                }
-
-            }
+            dict.Add(tempStr, score);
         }
-        */
 
-
-
-        // Temporary: to satisfy 'Not all code paths return a string' error
-        IList<string> x = new List<string>();
-        return x;
+        return dict;
     }
 }
