@@ -8,17 +8,14 @@ using System;
 
 public class BruteForceDecoder
 {
-    IList<char> upperAlphabet;
-    IList<char> lowerAlphabet;
-    IList<char> frequencyOrderedAlphabet;
-    IList<int> integers;
+    readonly IList<char> upperAlphabet;
+    readonly IList<char> lowerAlphabet;
+    readonly List<char> frequencyOrderedAlphabet = new() { 'e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l', 'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k', 'j', 'x', 'q', 'z' };
     
     public BruteForceDecoder()
     {
         upperAlphabet = ListConstants.upperAlphabet;
         lowerAlphabet = ListConstants.lowerAlphabet;
-        frequencyOrderedAlphabet = ListConstants.frequencyOrderedAlphabet;
-        integers = ListConstants.integers;
     }
 
     string RemoveSpecialCharacters(string s)
@@ -35,8 +32,8 @@ public class BruteForceDecoder
             return new Dictionary<string, int>();
         }
 
-        Dictionary<string, int> dict = new Dictionary<string, int>();
-        Encoders encoder = new Encoders();
+        Dictionary<string, int> dict = new();
+        Encoders encoder = new();
 
         // Find the index of the most common char (letters only) in the array lowerAlphabet
         char frequentLetter = Char.ToLower(Regex.Replace(encodedStr, "[^A-Za-z ]", "").GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key);
@@ -52,6 +49,7 @@ public class BruteForceDecoder
 
             string tempStr = encoder.ShiftCaesarCipher(encodedStr, difference);
             int score = 0;
+            
             // CHECK HOW MANY ENGLISH WORDS ARE IN STRING
 
             dict.Add(tempStr, score);
