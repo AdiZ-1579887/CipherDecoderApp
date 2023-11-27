@@ -19,7 +19,7 @@ public class DecodeButton : MonoBehaviour
         encoder = new Encoders();
         bruteForcer = new BruteForce();
     }
-
+    
     public void OnClick()
     {
         if (BruteForce)

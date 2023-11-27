@@ -21,7 +21,7 @@ public class Encoders
         {
             return "";
         }
-
+        
         string encodedStr = "";
         shuffle = shuffle % 26;
         foreach(char ch in plaintext)
@@ -56,8 +56,20 @@ public class Encoders
     }
 
     // TEMPORARILY RETURNING VOID, WILL BE RETURNING STRING IN THE FUTURE
-    public void monoalphabeticalCipher(string encodedStr, string key)
+    public string monoalphabeticCipher(string plaintext, string key)
     {
+        if (string.IsNullOrEmpty(plaintext))
+        {
+            return "";
+        }
 
+        if (key.Length != 26)
+        {
+            return "Key is not 26 letters.";
+        }
+
+        char[] lowerKey = plaintext.ToLower().ToCharArray();
+
+        
     }
 }
