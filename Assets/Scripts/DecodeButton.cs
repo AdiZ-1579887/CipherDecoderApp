@@ -20,7 +20,7 @@ public class DecodeButton : MonoBehaviour
 
     public void OnClick()
     {
-        if (BruteForce)
+        if (!BruteForce)
         {
             int shuffle;
             Int32.TryParse(shuffletextInputField.text, out shuffle);
