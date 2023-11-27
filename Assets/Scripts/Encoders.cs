@@ -48,10 +48,16 @@ public class Encoders
                 continue;
             }
             
-            // If the character is not a digit or alphabetical character, add it without shuffling it.
+            // If the character is not a numerical or alphabetical character, add it without shuffling it.
             encodedStr += ch;
         }
 
         return encodedStr;
+    }
+
+    // TEMPORARILY RETURNING VOID, WILL BE RETURNING STRING IN THE FUTURE
+    public void monoalphabeticalCipher(string encodedStr, string key)
+    {
+
     }
 }

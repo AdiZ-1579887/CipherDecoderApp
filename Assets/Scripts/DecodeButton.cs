@@ -8,23 +8,34 @@ public class DecodeButton : MonoBehaviour
     [SerializeField] TMP_InputField shuffletextInputField;
     [SerializeField] TMP_Text outputTextBox;
     
-    // TEMPORARILY SERIALIZED:
+    // TEMPORARILY SERIALIZED FOR TESTING:
     [SerializeField] bool BruteForce = false;
 
-    Encoders encoderScript;
+    Encoders encoder;
+    BruteForce bruteForcer;
 
     private void Start()
     {
-        encoderScript = new Encoders();
+        encoder = new Encoders();
+        bruteForcer = new BruteForce();
     }
 
     public void OnClick()
     {
-        if (!BruteForce)
+        if (BruteForce)
+        {
+            bruteForcer.CaesarCipher(plaintextInputField.text);
+        }
+        else
         {
             int shuffle;
-            Int32.TryParse(shuffletextInputField.text, out shuffle);
-            string output = encoderScript.ShiftCaesarCipher(plaintextInputField.text, shuffle);
+            if (!Int32.TryParse(shuffletextInputField.text, out shuffle))
+            {
+                outputTextBox.text = "Invalid shuffle. Please enter a numeric digit.";
+                return;
+            }
+
+            string output = encoder.ShiftCaesarCipher(plaintextInputField.text, shuffle);
 
             outputTextBox.text = output;
         }

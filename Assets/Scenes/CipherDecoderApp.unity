@@ -727,7 +727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1000}
+  m_AnchoredPosition: {x: 0, y: -1100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1036805128
@@ -839,6 +839,7 @@ MonoBehaviour:
   plaintextInputField: {fileID: 1176285827}
   shuffletextInputField: {fileID: 1880778847}
   outputTextBox: {fileID: 1566916672}
+  BruteForce: 0
 --- !u!1 &1064750117
 GameObject:
   m_ObjectHideFlags: 0
