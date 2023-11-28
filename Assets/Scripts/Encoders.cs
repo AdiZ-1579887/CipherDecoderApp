@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class Encoders
 {
@@ -35,7 +36,7 @@ public class Encoders
             
             if(Char.IsUpper(ch))
             {
-                // Takes the index of the char in the ENCODED string, adds that (also works with negative numbers) to the index, and adds the new char in the array to 'decodedStr'
+                // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index, and adds the new char in the array to 'encodedStr'
                 char newCh = upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle)];
                 encodedStr += newCh;
                 continue;
@@ -43,6 +44,7 @@ public class Encoders
             
             if(Char.IsLower(ch))
             {
+                // Same as above but with a different array
                 char newCh = lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + shuffle)];
                 encodedStr += newCh;
                 continue;
@@ -68,8 +70,31 @@ public class Encoders
             return "Key is not 26 letters.";
         }
 
-        char[] lowerKey = plaintext.ToLower().ToCharArray();
+        foreach(char ch in plaintext)
+        {
+            if(!char.IsLetter(ch))
+            {
+                return "The key must be all letters.";
+            }
+        }
 
-        
+        string plaintextLower = plaintext.ToLower();
+        string plaintextUpper = plaintext.ToUpper();
+        string encodedStr = "";
+
+        Dictionary<char, char> keyValueDict = new();
+
+        for(int i = 0; i <= 25; i++)
+        {
+            keyValueDict.Add(lowerAlphabet[i], plaintextLower[i]);
+        }
+
+        foreach(char ch in plaintext)
+        {
+            char newCh = keyValueDict[ch];
+            encodedStr += newCh;
+        }
+
+        return encodedStr;
     }
 }
