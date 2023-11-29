@@ -7,14 +7,12 @@ public class Encoders
     // readonly variables may be written to through Constructors
     readonly char[] upperAlphabet;
     readonly char[] lowerAlphabet;
-    readonly int[] integers;
 
     public Encoders()
     {
         // Fetch lists from ListConstants.cs to ensure that it is fully updated.
         upperAlphabet = ListConstants.upperAlphabet;
         lowerAlphabet = ListConstants.lowerAlphabet;
-        integers = ListConstants.integers;
     }
 
     public string ShiftCaesarCipher(string plaintext, int shuffle)
@@ -115,6 +113,45 @@ public class Encoders
             return "";
         }
 
+        string encodedStr = "";
+        foreach (char ch in plaintext)
+        {
+            // Digits remain unchanged
+            if (Char.IsDigit(ch))
+            {
+                encodedStr += ch;
+                continue;
+            }
 
+            if (Char.IsUpper(ch))
+            {
+                // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index, and adds the new char in the array to 'encodedStr'
+                char newCh = upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + 13)];
+                encodedStr += newCh;
+                continue;
+            }
+
+            if (Char.IsLower(ch))
+            {
+                // Same as above but with a different array
+                char newCh = lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + 13)];
+                encodedStr += newCh;
+                continue;
+            }
+
+            // If the character is not an alphanumerical character, add it without shuffling it.
+            encodedStr += ch;
+        }
+
+        /* TEMP CODE FOR TESTING
+        public static readonly char[] upperAlphabet = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
+        public static readonly char[] lowerAlphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
+        Dictionary<char, char> dict = new()
+		foreach(char ch in 
+		Console.WriteLine(JsonSerializer.Serialize(dict));
+        */
+
+        return encodedStr;
     }
 }
