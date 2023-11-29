@@ -27,6 +27,11 @@ public class BruteForce
         return Regex.Replace(s, "[^0-9A-Za-z ]", "");
     }
 
+    string RemoveDigits(string s)
+    {
+        return Regex.Replace(s, "[^A-Za-z ]", "");
+    }
+
     // Function will return each decoded string alongside its score in terms of how many English words were found in it
     public Dictionary<string, int> CaesarCipher(string encodedStr)
     {
@@ -38,7 +43,7 @@ public class BruteForce
         Dictionary<string, int> dict = new();
 
         // Find the index of the most common char (letters only) in the array lowerAlphabet
-        char frequentLetter = Char.ToLower(Regex.Replace(encodedStr, "[^A-Za-z ]", "").GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key);
+        char frequentLetter = Char.ToLower(RemoveDigits(encodedStr).GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key);
         int frequentLetterIndex = Array.IndexOf(lowerAlphabet.ToArray(), frequentLetter);
         for (int i = 0; i <= 5; i++)
         {

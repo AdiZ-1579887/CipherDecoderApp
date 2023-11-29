@@ -60,16 +60,19 @@ public class Encoders
     // TEMPORARILY RETURNING VOID, WILL BE RETURNING STRING IN THE FUTURE
     public string monoalphabeticCipher(string plaintext, string key)
     {
+        // Empty strings return nothing
         if (string.IsNullOrEmpty(plaintext))
         {
             return "";
         }
 
+        // Ensures that the key provided covers the full alphabet
         if (key.Length != 26)
         {
             return "Key is not 26 letters.";
         }
 
+        // Ensures that the key provided has no non-alphabetical characters
         foreach(char ch in plaintext)
         {
             if(!char.IsLetter(ch))
@@ -80,13 +83,19 @@ public class Encoders
 
         string plaintextLower = plaintext.ToLower();
         string plaintextUpper = plaintext.ToUpper();
+
+        // This ensures that the user-entered key in case-insensitive
+        string keyLower = key.ToLower();
+        string keyUpper = key.ToUpper();
         string encodedStr = "";
 
         Dictionary<char, char> keyValueDict = new();
 
-        for(int i = 0; i <= 25; i++)
+        // Generates a dictionary containing upper and lowercase values for each of the 52 possible letters (26 * 2 cases (upper and lower))
+        for (int i = 0; i <= 25; i++)
         {
-            keyValueDict.Add(lowerAlphabet[i], plaintextLower[i]);
+            keyValueDict.Add(lowerAlphabet[i], keyLower[i]);
+            keyValueDict.Add(upperAlphabet[i], keyUpper[i]);
         }
 
         foreach(char ch in plaintext)
