@@ -4,9 +4,10 @@ using System.Collections.Generic;
 public class Encoders
 {
     // Pre-defining the ordered alphabets and integers for ease of access in all functions that need it
-    char[] upperAlphabet;
-    char[] lowerAlphabet;
-    int[] integers;
+    // readonly variables may be written to through Constructors
+    readonly char[] upperAlphabet;
+    readonly char[] lowerAlphabet;
+    readonly int[] integers;
 
     public Encoders()
     {
@@ -105,5 +106,15 @@ public class Encoders
         }
 
         return encodedStr;
+    }
+
+    public string rot13Cipher(string plaintext)
+    {
+        if (string.IsNullOrEmpty(plaintext))
+        {
+            return "";
+        }
+
+
     }
 }
