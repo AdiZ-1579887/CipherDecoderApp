@@ -41,5 +41,6 @@ public class ListConstants
     }
 
     // ROT13 CIPHER
-    public static readonly Dictionary<char, char>() { {'a',} };
+    public static readonly Dictionary<char, char> rot13Upper = new() { {'A', 'N'}, {'B', 'O'}, {'C', 'P'}, {'D', 'Q'}, {'E', 'R'}, {'F', 'S'}, {'G', 'T'}, {'H', 'U'}, {'I', 'V'}, {'J', 'W'}, {'K', 'X'}, {'L', 'Y'}, {'M', 'Z'}, {'N', 'A'}, {'O', 'B'}, {'P', 'C'}, {'Q', 'D'}, {'R', 'E'}, {'S', 'F'}, {'T', 'G'}, {'U', 'H'}, {'V', 'I'}, {'W', 'J'}, {'X', 'K'}, {'Y', 'L'}, {'Z', 'M'} };
+    public static readonly Dictionary<char, char> rot13Lower = new() { {'a', 'n'}, {'b', 'o'}, {'c', 'p'}, {'d', 'q'}, {'e', 'r'}, {'f', 's'}, {'g', 't'}, {'h', 'u'}, {'i', 'v'}, {'j', 'w'}, {'k', 'x'}, {'l', 'y'}, {'m', 'z'}, {'n', 'a'}, {'o', 'b'}, {'p', 'c'}, {'q', 'd'}, {'r', 'e'}, {'s', 'f'}, {'t', 'g'}, {'u', 'h'}, {'v', 'i'}, {'w', 'j'}, {'x', 'k'}, {'y', 'l'}, {'z', 'm'} };
 }

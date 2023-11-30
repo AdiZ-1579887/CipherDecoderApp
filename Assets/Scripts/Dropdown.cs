@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Dropdown : MonoBehaviour
 {
-    [SerializeField] TMP_Dropdown dropDownObject;
-    TMP_Text dropDownValue;
-    
+    string[] dropdownOptions = { "Select", "Caesar", "Mono-alphabetic", "Rot13" };
+    public string selectedOption = "Select";
+
     public void OnValueChanged(int index)
     {
-        dropDownValue = dropDownObject.captionText;
+        selectedOption = dropdownOptions[index];
     }
 }

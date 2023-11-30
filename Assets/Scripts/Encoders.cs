@@ -114,6 +114,8 @@ public class Encoders
         }
 
         string encodedStr = "";
+        Dictionary<char, char> rot13Lower = ListConstants.rot13Lower;
+        Dictionary<char, char> rot13Upper = ListConstants.rot13Upper;
         foreach (char ch in plaintext)
         {
             // Digits remain unchanged
@@ -126,7 +128,7 @@ public class Encoders
             if (Char.IsUpper(ch))
             {
                 // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index, and adds the new char in the array to 'encodedStr'
-                char newCh = upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + 13)];
+                char newCh = rot13Upper[ch];
                 encodedStr += newCh;
                 continue;
             }
@@ -134,7 +136,7 @@ public class Encoders
             if (Char.IsLower(ch))
             {
                 // Same as above but with a different array
-                char newCh = lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + 13)];
+                char newCh = rot13Lower[ch];
                 encodedStr += newCh;
                 continue;
             }
@@ -142,15 +144,6 @@ public class Encoders
             // If the character is not an alphanumerical character, add it without shuffling it.
             encodedStr += ch;
         }
-
-        /* TEMP CODE FOR TESTING
-        public static readonly char[] upperAlphabet = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
-        public static readonly char[] lowerAlphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-
-        Dictionary<char, char> dict = new()
-		foreach(char ch in 
-		Console.WriteLine(JsonSerializer.Serialize(dict));
-        */
 
         return encodedStr;
     }
