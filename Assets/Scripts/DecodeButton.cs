@@ -14,13 +14,13 @@ public class DecodeButton : MonoBehaviour
 
     Encoders encoder;
     BruteForce bruteForcer;
-    Dropdown dropdown;
+    DropDown dropdown;
 
     private void Start()
     {
         encoder = new Encoders();
         bruteForcer = new BruteForce();
-        dropdown = new Dropdown();
+        dropdown = new DropDown();
 
     }
     
