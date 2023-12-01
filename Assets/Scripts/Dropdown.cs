@@ -4,9 +4,9 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class Dropdown : MonoBehaviour
+public class Dropdown
 {
-    string[] dropdownOptions = { "Select", "Caesar", "Mono-alphabetic", "Rot13" };
+    string[] dropdownOptions = { "Select", "Caesar", "Monoalphabetic", "Rot13" };
     public string selectedOption = "Select";
 
     public void OnValueChanged(int index)

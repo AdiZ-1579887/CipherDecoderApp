@@ -35,12 +35,12 @@ public class BruteForce
     // Function will return each decoded string alongside its score in terms of how many English words were found in it
     public Dictionary<string, int> CaesarCipher(string encodedStr)
     {
+        Dictionary<string, int> dict = new();
+
         if (string.IsNullOrEmpty(encodedStr))
         {
-            return new Dictionary<string, int>();
+            return dict;
         }
-
-        Dictionary<string, int> dict = new();
 
         // Find the index of the most common char (letters only) in the array lowerAlphabet
         char frequentLetter = Char.ToLower(RemoveDigits(encodedStr).GroupBy(x => x).OrderByDescending(x => x.Count()).First().Key);
@@ -61,6 +61,34 @@ public class BruteForce
 
             dict.Add(tempStr, score);
         }
+
+        return dict;
+    }
+
+    public Dictionary<string, int> MonoalphabeticCipher(string encodedStr)
+    {
+        Dictionary<string, int> dict = new();
+
+        if (string.IsNullOrEmpty(encodedStr))
+        {
+            return dict;
+        }
+
+        // BRUTE-FORCE THE MONOALPHABETIC CIPHER
+        
+        return dict;
+    }
+
+    public Dictionary<string, int> Rot13Cipher(string encodedStr)
+    {
+        Dictionary<string, int> dict = new();
+
+        if (string.IsNullOrEmpty(encodedStr))
+        {
+            return dict;
+        }
+
+        // BRUTE-FORCE THE ROT13 CIPHER
 
         return dict;
     }

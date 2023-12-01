@@ -57,7 +57,7 @@ public class Encoders
     }
 
     // TEMPORARILY RETURNING VOID, WILL BE RETURNING STRING IN THE FUTURE
-    public string monoalphabeticCipher(string plaintext, string key)
+    public string MonoalphabeticCipher(string plaintext, string key)
     {
         // Empty strings return nothing
         if (string.IsNullOrEmpty(plaintext))
@@ -106,7 +106,7 @@ public class Encoders
         return encodedStr;
     }
 
-    public string rot13Cipher(string plaintext)
+    public string Rot13Cipher(string plaintext)
     {
         if (string.IsNullOrEmpty(plaintext))
         {
