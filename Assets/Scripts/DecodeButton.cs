@@ -20,7 +20,8 @@ public class DecodeButton : MonoBehaviour
     {
         encoder = new Encoders();
         bruteForcer = new BruteForce();
-        dropdown = new DropDown();
+        // dropdown = new DropDown();
+        // DropDown dropdown = gameObject.AddComponent<DropDown>();
 
     }
     
@@ -39,7 +40,7 @@ public class DecodeButton : MonoBehaviour
                 break;
 
             case "Caesar":
-                // If the user has checked the 'Brute-Force' checkbox (yet to be added), t
+                // If the user has checked the 'Brute-Force' checkbox (yet to be added) 
                 if (BruteForce)
                 {
                     bruteForcer.CaesarCipher(plaintextInputField.text);
