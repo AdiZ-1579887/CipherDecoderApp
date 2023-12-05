@@ -7,6 +7,7 @@ public class Encoders
     // readonly variables may be written to through Constructors
     readonly char[] upperAlphabet;
     readonly char[] lowerAlphabet;
+    readonly Dictionary<string, bool> secondaryInputRequiredDict = new();
 
     public Encoders()
     {
@@ -23,7 +24,7 @@ public class Encoders
         }
         
         string encodedStr = "";
-        shuffle = shuffle % 26;
+        shuffle %= 26;
         foreach(char ch in plaintext)
         {
             // Digits remain unchanged

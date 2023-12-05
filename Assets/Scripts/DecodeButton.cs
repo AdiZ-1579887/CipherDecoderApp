@@ -6,10 +6,10 @@ public class DecodeButton : MonoBehaviour
 {
     // InputField and TextBox objects are linked to from here
     [SerializeField] TMP_InputField plaintextInputField;
-    [SerializeField] TMP_InputField shuffletextInputField;
+    [SerializeField] TMP_InputField secondaryInputField;
     [SerializeField] TMP_Text outputTextBox;
     
-    // TEMPORARILY SERIALIZED FOR TESTING:
+    // TEMPORARILY SERIALIZED FOR TESTING (will eventually be a checkbox in the application itself, or there may be a dedicated, separate Brute-Force menu):
     [SerializeField] bool BruteForce = false;
 
     // Serialized scripts
@@ -47,7 +47,7 @@ public class DecodeButton : MonoBehaviour
                 }
                 else
                 {
-                    if (!Int32.TryParse(shuffletextInputField.text, out int shuffle))
+                    if (!Int32.TryParse(secondaryInputField.text, out int shuffle))
                     {
                         output = "Invalid shuffle. Please enter a numeric digit.";
                         break;
@@ -65,7 +65,7 @@ public class DecodeButton : MonoBehaviour
                 }
                 else
                 {
-                    output = encoder.MonoalphabeticCipher(plaintextInputField.text, shuffletextInputField.text);
+                    output = encoder.MonoalphabeticCipher(plaintextInputField.text, secondaryInputField.text);
                 }
                 break;
 
