@@ -1,0 +1,10 @@
+Tasks to be done:
+
+- Implement a function to check brute-force output against common English words to determine the success of a particular brute-force attempt.
+    - This is bearing in mind the difficulties faced with the Unity device simulator being unable to handle the storage of 10,000-word lists in memory while running the program.
+
+- Design and decide on a UI stucture to use for the app
+    - Ensure user-friendliness
+    - Ensure that the app does not require an overuse of tutorials for its functionality to be clear
+
+- ADD MORE CIPHERS!

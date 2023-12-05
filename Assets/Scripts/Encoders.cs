@@ -7,7 +7,6 @@ public class Encoders
     // readonly variables may be written to through Constructors
     readonly char[] upperAlphabet;
     readonly char[] lowerAlphabet;
-    readonly Dictionary<string, bool> secondaryInputRequiredDict = new();
 
     public Encoders()
     {
