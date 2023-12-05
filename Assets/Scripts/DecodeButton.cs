@@ -13,7 +13,7 @@ public class DecodeButton : MonoBehaviour
     [SerializeField] bool BruteForce = false;
 
     // Serialized scripts
-    [SerializeField] DropDown dropdown;
+    [SerializeField] DropdownMenu dropdownMenu;
 
     Encoders encoder;
     BruteForce bruteForcer;
@@ -27,7 +27,7 @@ public class DecodeButton : MonoBehaviour
     public void OnClick()
     {
         // Grabs the selected option from the dropdown object's script
-        string selectedOption = dropdown.selectedOption;
+        string selectedOption = dropdownMenu.selectedOption;
 
         // Each case will set the output variables, which the text box that contains the result will display after the switch statement ends
         string output = "";

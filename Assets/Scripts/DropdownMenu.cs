@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class DropDown : MonoBehaviour
+public class DropdownMenu : MonoBehaviour
 {
     [SerializeField] TMP_InputField secondaryInputField;
 
