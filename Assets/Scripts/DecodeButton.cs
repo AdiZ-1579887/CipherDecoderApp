@@ -12,17 +12,16 @@ public class DecodeButton : MonoBehaviour
     // TEMPORARILY SERIALIZED FOR TESTING:
     [SerializeField] bool BruteForce = false;
 
+    // Serialized scripts
+    [SerializeField] DropDown dropdown;
+
     Encoders encoder;
     BruteForce bruteForcer;
-    DropDown dropdown;
 
     private void Start()
     {
         encoder = new Encoders();
         bruteForcer = new BruteForce();
-        // dropdown = new DropDown();
-        // DropDown dropdown = gameObject.AddComponent<DropDown>();
-
     }
     
     public void OnClick()

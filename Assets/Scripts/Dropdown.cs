@@ -14,8 +14,6 @@ public class DropDown : MonoBehaviour
         selectedOption = "Select";
     }
 
-    
-
     public void OnValueChanged(int index)
     {
         selectedOption = dropdownOptions[index];

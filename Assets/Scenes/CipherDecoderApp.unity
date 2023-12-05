@@ -794,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa312e7b853dca641a1e5676e6d22a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedOption: 
+  selectedOption: Select
 --- !u!4 &1024139404
 Transform:
   m_ObjectHideFlags: 0
@@ -960,6 +960,7 @@ MonoBehaviour:
   shuffletextInputField: {fileID: 1880778847}
   outputTextBox: {fileID: 1566916672}
   BruteForce: 0
+  dropdown: {fileID: 1024139403}
 --- !u!1 &1058446701
 GameObject:
   m_ObjectHideFlags: 0
