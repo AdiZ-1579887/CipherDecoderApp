@@ -7,7 +7,10 @@ using System;
 public class DropdownMenu : MonoBehaviour
 {
     [SerializeField] TMP_InputField secondaryInputField;
+    [SerializeField] TMP_Text descriptionText;
 
+    Descriptions descriptor;
+    
     string[] dropdownOptions = { "Select", "Caesar", "Monoalphabetic", "Rot13" };
     public string selectedOption;
     readonly Dictionary<string, bool> secondaryInputRequiredDict = new()
@@ -22,6 +25,7 @@ public class DropdownMenu : MonoBehaviour
     {
         secondaryInputField.interactable = false;
         selectedOption = "Select";
+        descriptor = new();
     }
 
     public void OnValueChanged(int index)
@@ -36,5 +40,7 @@ public class DropdownMenu : MonoBehaviour
         {
             secondaryInputField.interactable = false;
         }
+
+        descriptionText.text = Descriptions.descDict[selectedOption];
     }
 }
