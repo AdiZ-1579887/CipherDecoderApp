@@ -53,7 +53,7 @@ public class DecodeButton : MonoBehaviour
                         break;
                     }
 
-                    output = encoder.ShiftCaesarCipher(plaintextInputField.text, shuffle);
+                    output = encoder.CaesarCipher(plaintextInputField.text, shuffle);
                 }
                 break;
 

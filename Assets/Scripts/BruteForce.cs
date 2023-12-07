@@ -55,7 +55,7 @@ public class BruteForce
             // Find the difference by which the encoded string must be shuffled to be decoded
             int difference = letterIndex - frequentLetterIndex;
 
-            string tempStr = encoder.ShiftCaesarCipher(encodedStr, difference);
+            string tempStr = encoder.CaesarCipher(encodedStr, difference);
             int score = 0;
 
             // CHECK HOW MANY ENGLISH WORDS ARE IN STRING
