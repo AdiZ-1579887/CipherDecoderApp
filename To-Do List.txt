@@ -17,3 +17,19 @@ Optional tasks:
 
 -How ciphers work and history of ciphers
 -
+
+
+DSCD Tech Fair Presentation Judging:
+All student projects will be judged by the following:
+
+Originality – Was the entry original, creative, and imaginative in content and implementation?
+Clarity – Was the student presentation to the judge clear? (Nervousness will not count against the student)
+Documentation – Did the student receive and document all required permissions?
+Appropriateness – Was the technology/software used appropriately matched?
+Design – Does the overall design support the project purpose?
+During the presentation, students will be required to:
+
+Demonstrate an understanding of the software in relation to the project.
+Explain various aspects of the project’s creation.
+Defend the software selection for the project.
+Answer given questions about the project.
