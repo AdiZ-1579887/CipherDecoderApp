@@ -8,3 +8,7 @@ Tasks to be done:
     - Ensure that the app does not require an overuse of tutorials for its functionality to be clear
 
 - ADD MORE CIPHERS!
+
+Optional tasks:
+
+- 
