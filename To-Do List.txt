@@ -12,3 +12,8 @@ Tasks to be done:
 Optional tasks:
 
 - 
+
+(Karter):
+
+-How ciphers work and history of ciphers
+-
