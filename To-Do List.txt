@@ -12,3 +12,8 @@ Tasks to be done:
 Optional tasks:
 
 - Add a timer at the bottom of the screen that shows an estimated time for how long the current command is going to take
+
+(Karter):
+
+-How ciphers work and history of ciphers
+-
