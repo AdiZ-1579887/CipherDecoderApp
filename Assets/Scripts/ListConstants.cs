@@ -45,4 +45,8 @@ public class ListConstants
     // ROT13 CIPHER
     public static readonly Dictionary<char, char> rot13Upper = new() { {'A', 'N'}, {'B', 'O'}, {'C', 'P'}, {'D', 'Q'}, {'E', 'R'}, {'F', 'S'}, {'G', 'T'}, {'H', 'U'}, {'I', 'V'}, {'J', 'W'}, {'K', 'X'}, {'L', 'Y'}, {'M', 'Z'}, {'N', 'A'}, {'O', 'B'}, {'P', 'C'}, {'Q', 'D'}, {'R', 'E'}, {'S', 'F'}, {'T', 'G'}, {'U', 'H'}, {'V', 'I'}, {'W', 'J'}, {'X', 'K'}, {'Y', 'L'}, {'Z', 'M'} };
     public static readonly Dictionary<char, char> rot13Lower = new() { {'a', 'n'}, {'b', 'o'}, {'c', 'p'}, {'d', 'q'}, {'e', 'r'}, {'f', 's'}, {'g', 't'}, {'h', 'u'}, {'i', 'v'}, {'j', 'w'}, {'k', 'x'}, {'l', 'y'}, {'m', 'z'}, {'n', 'a'}, {'o', 'b'}, {'p', 'c'}, {'q', 'd'}, {'r', 'e'}, {'s', 'f'}, {'t', 'g'}, {'u', 'h'}, {'v', 'i'}, {'w', 'j'}, {'x', 'k'}, {'y', 'l'}, {'z', 'm'} };
+
+    // ATBASH CIPHER
+    public static readonly Dictionary<char, char> atbashUpper = new() { { 'A', 'Z' }, { 'B', 'Y' }, { 'C', 'X' }, { 'D', 'W' }, { 'E', 'V' }, { 'F', 'U' }, { 'G', 'T' }, { 'H', 'S' }, { 'I', 'R' }, { 'J', 'Q' }, { 'K', 'P' }, { 'L', 'O' }, { 'M', 'N' }, { 'N', 'M' }, { 'O', 'L' }, { 'P', 'K' }, { 'Q', 'J' }, { 'R', 'I' }, { 'S', 'H' }, { 'T', 'G' }, { 'U', 'F' }, { 'V', 'E' }, { 'W', 'D' }, { 'X', 'C' }, { 'Y', 'B' }, { 'Z', 'A' } };
+    public static readonly Dictionary<char, char> atbashLower = new() { { 'a', 'z' }, { 'b', 'y' }, { 'c', 'x' }, { 'd', 'w' }, { 'e', 'v' }, { 'f', 'u' }, { 'g', 't' }, { 'h', 's' }, { 'i', 'r' }, { 'j', 'q' }, { 'k', 'p' }, { 'l', 'o' }, { 'm', 'n' }, { 'n', 'm' }, { 'o', 'l' }, { 'p', 'k' }, { 'q', 'j' }, { 'r', 'i' }, { 's', 'h' }, { 't', 'g' }, { 'u', 'f' }, { 'v', 'e' }, { 'w', 'd' }, { 'x', 'c' }, { 'y', 'b' }, { 'z', 'a' } };
 }

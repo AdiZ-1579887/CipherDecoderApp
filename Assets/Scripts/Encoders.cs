@@ -145,13 +145,14 @@ public class Encoders
         }
 
         string encodedStr = "";
-        
+        Dictionary<char, char> atbashLower = ListConstants.atbashLower;
+        Dictionary<char, char> atbashUpper = ListConstants.atbashUpper;
         foreach (char ch in plaintext)
         {
             if (Char.IsLower(ch))
             {
                 // Same as above but with a different array
-                char newCh = ;
+                char newCh = atbashLower[ch];
                 encodedStr += newCh;
                 continue;
             }
@@ -160,7 +161,7 @@ public class Encoders
             {
                 // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index,
                 // and adds the new char in the array to 'encodedStr'
-                char newCh = ;
+                char newCh = atbashUpper[ch];
                 encodedStr += newCh;
                 continue;
             }
