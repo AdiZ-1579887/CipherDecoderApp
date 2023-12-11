@@ -16,6 +16,41 @@ public class Encoders
         lowerAlphabet = ListConstants.lowerAlphabet;
     }
 
+    string EncodeStringWithAlphabetDictionaries(string plaintext, Dictionary<char, char> upperAlphabetDict, Dictionary<char, char> lowerAlphabetDict)
+    {
+        if (string.IsNullOrEmpty(plaintext))
+        {
+            return "";
+        }
+
+        string str = "";
+        
+        foreach (char ch in plaintext)
+        {
+            if (Char.IsLower(ch))
+            {
+                // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index,
+                // and adds the new char in the array to 'str'
+                char newCh = lowerAlphabetDict[ch];
+                str += newCh;
+                continue;
+            }
+
+            if (Char.IsUpper(ch))
+            {
+                // Same as above but with a different array
+                char newCh = upperAlphabetDict[ch];
+                str += newCh;
+                continue;
+            }
+
+            // If the character is not an alphabetical character, add it without shuffling it.
+            str += ch;
+        }
+
+        return str;
+    }
+
     public string CaesarCipher(string plaintext, int shuffle)
     {
         if (string.IsNullOrEmpty(plaintext))
@@ -103,73 +138,11 @@ public class Encoders
 
     public string Rot13Cipher(string plaintext)
     {
-        if (string.IsNullOrEmpty(plaintext))
-        {
-            return "";
-        }
-
-        string encodedStr = "";
-        Dictionary<char, char> rot13Lower = ListConstants.rot13Lower;
-        Dictionary<char, char> rot13Upper = ListConstants.rot13Upper;
-        foreach (char ch in plaintext)
-        {
-            if (Char.IsLower(ch))
-            {
-                // Same as above but with a different array
-                char newCh = rot13Lower[ch];
-                encodedStr += newCh;
-                continue;
-            }
-
-            if (Char.IsUpper(ch))
-            {
-                // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index,
-                // and adds the new char in the array to 'encodedStr'
-                char newCh = rot13Upper[ch];
-                encodedStr += newCh;
-                continue;
-            }
-
-            // If the character is not an alphabetical character, add it without shuffling it.
-            encodedStr += ch;
-        }
-
-        return encodedStr;
+        return EncodeStringWithAlphabetDictionaries(plaintext, ListConstants.rot13Upper, ListConstants.rot13Lower);
     }
 
     public string AtbashCipher(string plaintext)
     {
-        if (string.IsNullOrEmpty(plaintext))
-        {
-            return "";
-        }
-
-        string encodedStr = "";
-        Dictionary<char, char> atbashLower = ListConstants.atbashLower;
-        Dictionary<char, char> atbashUpper = ListConstants.atbashUpper;
-        foreach (char ch in plaintext)
-        {
-            if (Char.IsLower(ch))
-            {
-                // Same as above but with a different array
-                char newCh = atbashLower[ch];
-                encodedStr += newCh;
-                continue;
-            }
-
-            if (Char.IsUpper(ch))
-            {
-                // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index,
-                // and adds the new char in the array to 'encodedStr'
-                char newCh = atbashUpper[ch];
-                encodedStr += newCh;
-                continue;
-            }
-
-            // If the character is not an alphabetical character, add it without shuffling it.
-            encodedStr += ch;
-        }
-
-        return encodedStr;
+        return EncodeStringWithAlphabetDictionaries(plaintext, ListConstants.atbashUpper, ListConstants.atbashLower);
     }
 }
