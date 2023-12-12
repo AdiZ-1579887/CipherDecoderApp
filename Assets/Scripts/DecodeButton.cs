@@ -31,6 +31,8 @@ public class DecodeButton : MonoBehaviour
 
         // Each case will set the output variables, which the text box that contains the result will display after the switch statement ends
         string output = "";
+        string plaintext = plaintextInputField.text;
+
         switch (selectedOption)
         {
             // If the user either hasn't changed the dropdown or has changed it, but they chose "Select a Cipher"
@@ -42,7 +44,7 @@ public class DecodeButton : MonoBehaviour
                 // If the user has checked the 'Brute-Force' checkbox (yet to be added) 
                 if (BruteForce)
                 {
-                    bruteForcer.CaesarCipher(plaintextInputField.text);
+                    bruteForcer.CaesarCipher(plaintext);
                     // MUST ADD SUPPORT FOR DICTIONARY OUTPUT
                 }
                 else
@@ -53,28 +55,32 @@ public class DecodeButton : MonoBehaviour
                         break;
                     }
 
-                    output = encoder.CaesarCipher(plaintextInputField.text, shuffle);
+                    output = encoder.CaesarCipher(plaintext, shuffle);
                 }
                 break;
 
             case "Monoalphabetic":
                 if (BruteForce)
                 {
-                    bruteForcer.MonoalphabeticCipher(plaintextInputField.text);
+                    bruteForcer.MonoalphabeticCipher(plaintext);
                     // MUST ADD SUPPORT FOR DICTIONARY OUTPUT
                 }
                 else
                 {
-                    output = encoder.MonoalphabeticCipher(plaintextInputField.text, secondaryInputField.text);
+                    output = encoder.MonoalphabeticCipher(plaintext, secondaryInputField.text);
                 }
                 break;
 
             case "Rot13":
                 // Decoding with the Rot13 cipher is the same as just encoding the encoded text again
-                output = encoder.Rot13Cipher(plaintextInputField.text);
+                output = encoder.Rot13Cipher(plaintext);
                 break;
 
-            // For if the dropdown text is not one of the available ciphers, though this should not be possible
+            case "Reverse":
+                output = encoder.ReverseText(plaintext);
+                break;
+                
+                // For if the dropdown text is not one of the available ciphers, though this should not be possible
             default:
                 output = "The dropdown selection caused an error. Please try again.";
                 break;

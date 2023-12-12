@@ -65,7 +65,7 @@ public class Encoders
             if (Char.IsLower(ch))
             {
                 // Same as above but with a different array
-                char newCh = lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + shuffle)];
+                char newCh = lowerAlphabet[(Array.IndexOf(lowerAlphabet, ch) + shuffle) % lowerAlphabet.Length];
                 encodedStr += newCh;
                 continue;
             }
@@ -74,7 +74,7 @@ public class Encoders
             {
                 // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index,
                 // and adds the new char in the array to 'encodedStr'
-                char newCh = upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle)];
+                char newCh = upperAlphabet[(Array.IndexOf(upperAlphabet, ch) + shuffle) % upperAlphabet.Length];
                 encodedStr += newCh;
                 continue;
             }
@@ -101,7 +101,7 @@ public class Encoders
         }
 
         // Ensures that the key provided has no non-alphabetical characters
-        foreach(char ch in plaintext)
+        foreach(char ch in key)
         {
             if(!char.IsLetter(ch))
             {
@@ -129,8 +129,14 @@ public class Encoders
 
         foreach(char ch in plaintext)
         {
-            char newCh = keyValueDict[ch];
-            encodedStr += newCh;
+            if (Char.IsLetter(ch))
+            {
+                char newCh = keyValueDict[ch];
+                encodedStr += newCh;
+                continue;
+            }
+
+            encodedStr += ch;
         }
 
         return encodedStr;
@@ -144,5 +150,12 @@ public class Encoders
     public string AtbashCipher(string plaintext)
     {
         return EncodeStringWithAlphabetDictionaries(plaintext, ListConstants.atbashUpper, ListConstants.atbashLower);
+    }
+
+    public string ReverseText(string plaintext)
+    {
+        char[] charArray = plaintext.ToCharArray();
+        Array.Reverse(charArray);
+        return new string(charArray);
     }
 }

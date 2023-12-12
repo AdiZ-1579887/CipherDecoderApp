@@ -11,14 +11,16 @@ public class DropdownMenu : MonoBehaviour
 
     Descriptions descriptor;
     
-    string[] dropdownOptions = { "Select", "Caesar", "Monoalphabetic", "Rot13" };
-    public string selectedOption;
+    string[] dropdownOptions = { "Select", "Caesar", "Monoalphabetic", "Rot13", "Reverse" };
+    [HideInInspector] public string selectedOption;
+
     readonly Dictionary<string, bool> secondaryInputRequiredDict = new()
     {
         { "Select", false },
         { "Caesar", true },
         { "Monoalphabetic", true },
-        { "Rot13", false }
+        { "Rot13", false },
+        { "Reverse", false }
     };
 
     void Start()
