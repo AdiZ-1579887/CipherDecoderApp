@@ -11,11 +11,12 @@ public class Encoders
 
     public Encoders()
     {
-        // Fetch lists from ListConstants.cs to ensure that it is fully updated.
-        upperAlphabet = ListConstants.upperAlphabet;
-        lowerAlphabet = ListConstants.lowerAlphabet;
+        // Fetch lists from ConstantVars.cs to ensure that it is fully updated.
+        upperAlphabet = ConstantVars.upperAlphabet;
+        lowerAlphabet = ConstantVars.lowerAlphabet;
     }
 
+    #region Generic Methods
     string EncodeStringWithAlphabetDictionaries(string plaintext, Dictionary<char, char> upperAlphabetDict, Dictionary<char, char> lowerAlphabetDict)
     {
         if (string.IsNullOrEmpty(plaintext))
@@ -50,7 +51,9 @@ public class Encoders
 
         return str;
     }
+    #endregion
 
+    #region Cipher Encoders
     public string CaesarCipher(string plaintext, int shuffle)
     {
         if (string.IsNullOrEmpty(plaintext))
@@ -144,12 +147,12 @@ public class Encoders
 
     public string Rot13Cipher(string plaintext)
     {
-        return EncodeStringWithAlphabetDictionaries(plaintext, ListConstants.rot13Upper, ListConstants.rot13Lower);
+        return EncodeStringWithAlphabetDictionaries(plaintext, ConstantVars.rot13Upper, ConstantVars.rot13Lower);
     }
 
     public string AtbashCipher(string plaintext)
     {
-        return EncodeStringWithAlphabetDictionaries(plaintext, ListConstants.atbashUpper, ListConstants.atbashLower);
+        return EncodeStringWithAlphabetDictionaries(plaintext, ConstantVars.atbashUpper, ConstantVars.atbashLower);
     }
 
     public string ReverseText(string plaintext)
@@ -158,4 +161,5 @@ public class Encoders
         Array.Reverse(charArray);
         return new string(charArray);
     }
+    #endregion
 }

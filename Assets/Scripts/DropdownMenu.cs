@@ -6,11 +6,12 @@ using System;
 
 public class DropdownMenu : MonoBehaviour
 {
+    #region Serialized Objects
     [SerializeField] TMP_InputField secondaryInputField;
     [SerializeField] TMP_Text descriptionText;
+    #endregion
 
-    Descriptions descriptor;
-    
+    #region Basic Variables
     string[] dropdownOptions = { "Select", "Caesar", "Monoalphabetic", "Rot13", "Reverse" };
     [HideInInspector] public string selectedOption;
 
@@ -22,12 +23,12 @@ public class DropdownMenu : MonoBehaviour
         { "Rot13", false },
         { "Reverse", false }
     };
+    #endregion
 
     void Start()
     {
         secondaryInputField.interactable = false;
         selectedOption = "Select";
-        descriptor = new();
     }
 
     public void OnValueChanged(int index)
@@ -43,6 +44,6 @@ public class DropdownMenu : MonoBehaviour
             secondaryInputField.interactable = false;
         }
 
-        descriptionText.text = Descriptions.descDict[selectedOption];
+        descriptionText.text = ConstantVars.descDict[selectedOption];
     }
 }

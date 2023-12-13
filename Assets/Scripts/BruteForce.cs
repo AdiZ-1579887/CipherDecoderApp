@@ -17,8 +17,8 @@ public class BruteForce
     // Constructor
     public BruteForce()
     {
-        upperAlphabet = ListConstants.upperAlphabet;
-        lowerAlphabet = ListConstants.lowerAlphabet;
+        upperAlphabet = ConstantVars.upperAlphabet;
+        lowerAlphabet = ConstantVars.lowerAlphabet;
         encoder = new();
     }
 
