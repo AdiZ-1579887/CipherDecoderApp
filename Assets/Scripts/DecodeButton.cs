@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DecodeButton : MonoBehaviour
 {
+    #region Serialized Objects
     // InputField and TextBox objects are linked to from here
     [SerializeField] TMP_InputField plaintextInputField;
     [SerializeField] TMP_InputField secondaryInputField;
@@ -14,6 +15,7 @@ public class DecodeButton : MonoBehaviour
 
     // Serialized scripts
     [SerializeField] DropdownMenu dropdownMenu;
+    #endregion
 
     Encoders encoder;
     BruteForce bruteForcer;
@@ -33,6 +35,7 @@ public class DecodeButton : MonoBehaviour
         string output = "";
         string plaintext = plaintextInputField.text;
 
+        #region selectedOption Switch Statement
         switch (selectedOption)
         {
             // If the user either hasn't changed the dropdown or has changed it, but they chose "Select a Cipher"
@@ -85,6 +88,7 @@ public class DecodeButton : MonoBehaviour
                 output = "The dropdown selection caused an error. Please try again.";
                 break;
         }
+        #endregion
 
         outputTextBox.text = output;
     }

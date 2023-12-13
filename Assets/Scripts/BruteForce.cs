@@ -8,20 +8,23 @@ using System.Linq;
 
 public class BruteForce
 {
+    #region Basic Variables
     readonly IList<char> upperAlphabet;
     readonly IList<char> lowerAlphabet;
-    readonly List<char> frequencyOrderedAlphabet = new() { 'e', 't', 'a', 'o', 'i', 'n', 's', 'h', 'r', 'd', 'l', 'c', 'u', 'm', 'w', 'f', 'g', 'y', 'p', 'b', 'v', 'k', 'j', 'x', 'q', 'z' };
+    readonly IList<char> frequencyOrderedAlphabet;
+    #endregion
 
     Encoders encoder;
-
-    // Constructor
+    
     public BruteForce()
     {
         upperAlphabet = ConstantVars.upperAlphabet;
         lowerAlphabet = ConstantVars.lowerAlphabet;
+        frequencyOrderedAlphabet = ConstantVars.frequencyOrderedAlphabet;
         encoder = new();
     }
 
+    #region General Methods
     string RemoveSpecialCharacters(string s)
     {
         // Returns a string in which 0-9, A-Z, a-z, and ' ' are allowed, but everything else is removed.
@@ -32,7 +35,9 @@ public class BruteForce
     {
         return Regex.Replace(s, "[^A-Za-z ]", "");
     }
+    #endregion
 
+    #region Cipher Brute-Force Methods
     // Function will return each decoded string alongside its score in terms of how many English words were found in it
     public Dictionary<string, int> CaesarCipher(string encodedStr)
     {
@@ -93,4 +98,5 @@ public class BruteForce
 
         return dict;
     }
+    #endregion
 }
