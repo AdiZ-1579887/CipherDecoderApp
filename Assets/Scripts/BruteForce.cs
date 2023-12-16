@@ -37,7 +37,7 @@ public class BruteForce
     }
     #endregion
 
-    #region Cipher Brute-Force Methods
+    #region Brute-Force Methods
     // Function will return each decoded string alongside its score in terms of how many English words were found in it
     public Dictionary<string, int> CaesarCipher(string encodedStr)
     {

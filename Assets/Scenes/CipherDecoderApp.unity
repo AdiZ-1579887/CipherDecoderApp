@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Side-Menu (Left)
       objectReference: {fileID: 0}
+    - target: {fileID: 224269059662225402, guid: d0c460c7e3992194cb7ab7bc605d6985, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1100
+      objectReference: {fileID: 0}
     - target: {fileID: 224739566112570662, guid: d0c460c7e3992194cb7ab7bc605d6985, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -3323,6 +3327,8 @@ MonoBehaviour:
     - m_Text: Rot-13
       m_Image: {fileID: 0}
     - m_Text: Reverse
+      m_Image: {fileID: 0}
+    - m_Text: Morse Code
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

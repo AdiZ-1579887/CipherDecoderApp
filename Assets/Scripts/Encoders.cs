@@ -5,7 +5,7 @@ public class Encoders
 {
     // Pre-defining the ordered alphabets and integers for ease of access in all functions that need it
 
-    // readonly variables may be written to through Constructors
+    // readonly variables may be written to by Constructors
     readonly char[] upperAlphabet;
     readonly char[] lowerAlphabet;
 
@@ -16,7 +16,63 @@ public class Encoders
         lowerAlphabet = ConstantVars.lowerAlphabet;
     }
 
-    #region Generic Methods
+    #region General Methods
+    #region Overloaded Methods
+    string EncodeStringWithAlphabetDictionaries(string plaintext, Dictionary<char, char> alphabetDict)
+    {
+        if (string.IsNullOrEmpty(plaintext))
+        {
+            return "";
+        }
+
+        string str = "";
+
+        foreach (char ch in plaintext)
+        {
+            if (alphabetDict.ContainsKey(ch))
+            {
+                char newCh = alphabetDict[ch];
+                str += newCh;
+                continue;
+            }
+
+            // If the character is not an alphabetical character, add it without encoding it.
+            str += ch;
+        }
+
+        return str;
+    }
+
+    string EncodeStringWithAlphabetDictionaries(string plaintext, Dictionary<char, string> alphabetDict, string cipherCalling)
+    {
+        if (string.IsNullOrEmpty(plaintext))
+        {
+            return "";
+        }
+
+        string str = "";
+        bool morse = cipherCalling == "Morse";
+
+        foreach (char ch in plaintext)
+        {
+            if (alphabetDict.ContainsKey(ch))
+            {
+                string newStr = alphabetDict[ch];
+                str += newStr;
+                if(morse)
+                {
+                    str += "  ";
+                }
+                continue;
+            }
+
+            // If the character is not an alphabetical character, add it without encoding it.
+            str += ch;
+        }
+
+        return str;
+    }
+
     string EncodeStringWithAlphabetDictionaries(string plaintext, Dictionary<char, char> upperAlphabetDict, Dictionary<char, char> lowerAlphabetDict)
     {
         if (string.IsNullOrEmpty(plaintext))
@@ -45,15 +101,16 @@ public class Encoders
                 continue;
             }
 
-            // If the character is not an alphabetical character, add it without shuffling it.
+            // If the character is not an alphabetical character, add it without encoding it.
             str += ch;
         }
 
         return str;
     }
     #endregion
+    #endregion
 
-    #region Cipher Encoders
+    #region Encoder Methods
     public string CaesarCipher(string plaintext, int shuffle)
     {
         if (string.IsNullOrEmpty(plaintext))
@@ -147,12 +204,12 @@ public class Encoders
 
     public string Rot13Cipher(string plaintext)
     {
-        return EncodeStringWithAlphabetDictionaries(plaintext, ConstantVars.rot13Upper, ConstantVars.rot13Lower);
+        return EncodeStringWithAlphabetDictionaries(plaintext, ConstantVars.rot13Cipher);
     }
 
     public string AtbashCipher(string plaintext)
     {
-        return EncodeStringWithAlphabetDictionaries(plaintext, ConstantVars.atbashUpper, ConstantVars.atbashLower);
+        return EncodeStringWithAlphabetDictionaries(plaintext, ConstantVars.atbashCipher);
     }
 
     public string ReverseText(string plaintext)
@@ -160,6 +217,11 @@ public class Encoders
         char[] charArray = plaintext.ToCharArray();
         Array.Reverse(charArray);
         return new string(charArray);
+    }
+
+    public string MorseCode(string plaintext)
+    {
+        return EncodeStringWithAlphabetDictionaries(plaintext, ConstantVars.morseCode, "Morse");
     }
     #endregion
 }

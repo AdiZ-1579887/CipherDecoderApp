@@ -12,7 +12,7 @@ public class DropdownMenu : MonoBehaviour
     #endregion
 
     #region Basic Variables
-    string[] dropdownOptions = { "Select", "Caesar", "Monoalphabetic", "Rot13", "Reverse" };
+    string[] dropdownOptions = { "Select", "Caesar", "Monoalphabetic", "Rot13", "Reverse", "Morse" };
     [HideInInspector] public string selectedOption;
 
     readonly Dictionary<string, bool> secondaryInputRequiredDict = new()
@@ -21,7 +21,18 @@ public class DropdownMenu : MonoBehaviour
         { "Caesar", true },
         { "Monoalphabetic", true },
         { "Rot13", false },
-        { "Reverse", false }
+        { "Reverse", false },
+        { "Morse", false }
+    };
+
+    readonly Dictionary<string, bool> bruteForceAvailable = new()
+    {
+        { "Select", false },
+        { "Caesar", true },
+        { "Monoalphabetic", true },
+        { "Rot13", false },
+        { "Reverse", false },
+        { "Morse", false }
     };
     #endregion
 

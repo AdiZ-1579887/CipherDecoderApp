@@ -82,6 +82,9 @@ public class DecodeButton : MonoBehaviour
             case "Reverse":
                 output = encoder.ReverseText(plaintext);
                 break;
+            case "Morse":
+                output = encoder.MorseCode(plaintext);
+                break;
                 
                 // For if the dropdown text is not one of the available ciphers, though this should not be possible
             default:
