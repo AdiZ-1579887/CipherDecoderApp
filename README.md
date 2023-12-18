@@ -1,18 +1,21 @@
-What is this? Who is doing this?
+# What is this?
 
 - This is an application developed using the Mobile Development libraries featured in the Unity Game Engine.
 
-- This app is designed to encrypt and decipher phrases using common encryption methods. Common examples include the Caesar Cipher and Monoalphabetic Cipher (otherwise known as the Substitution Cipher).
+- The app is designed to encrypt and decipher phrases using common encryption methods. Common examples include the Caesar Cipher and Monoalphabetic Cipher (otherwise known as the Substitution Cipher).
 
 - A 'Brute-Force' feature is also being implemented that will be able to utilize smartphones' ever-increasing processing power to crack ciphers, fully offline.
 
-- Our group of four - Adi, Karter, Kavya, and Daniel - is working towards making this a functional app that can be released, initially to the Google Play Store and possibly to the Apple App Store in the future.
+# Who is doing this?
+
+- Our group of three - Adi, Karter, and Kavya - is working towards making this a functional app that can be released, initially to the Google Play Store and possibly to the Apple App Store in the future.
 
 - We intend to submit this app to several upcoming app design challenges and hope to achieve high placements due to our early start on the project.
 
-Roles:
+- This is the first mobile development project that any of us have worked on, and we're excited to continue as a group to create something that we're proud of and could potentially use in the future.
 
-- Adi - Lead Coder (does everything in Unity and converts pseudocode to C#)
-- Karter - Researcher (finds commonly used and programmable ciphers to implement)
+## Roles:
+
+- Adi - Lead Coder (codes everything in Unity using C#, and works with Karter on UI design and implementation)
+- Karter - Researcher (finds commonly used and programmable ciphers to implement, and works with Adi on UI)
 - Kavya - Pseudocode (devises the methods to encrypt, decrypt, and brute-force ciphers and creates pseudocode in Python)
-- Daniel - Design and UI Artist (creates and proposes designs for a UI interface for the app)

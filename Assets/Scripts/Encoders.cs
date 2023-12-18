@@ -43,6 +43,7 @@ public class Encoders
         return str;
     }
 
+    // Used for ciphers where the ciphertext for a single character can exceed a single character
     string EncodeStringWithAlphabetDictionaries(string plaintext, Dictionary<char, string> alphabetDict, string cipherCalling)
     {
         if (string.IsNullOrEmpty(plaintext))
@@ -63,41 +64,6 @@ public class Encoders
                 {
                     str += "  ";
                 }
-                continue;
-            }
-
-            // If the character is not an alphabetical character, add it without encoding it.
-            str += ch;
-        }
-
-        return str;
-    }
-
-    string EncodeStringWithAlphabetDictionaries(string plaintext, Dictionary<char, char> upperAlphabetDict, Dictionary<char, char> lowerAlphabetDict)
-    {
-        if (string.IsNullOrEmpty(plaintext))
-        {
-            return "";
-        }
-
-        string str = "";
-        
-        foreach (char ch in plaintext)
-        {
-            if (Char.IsLower(ch))
-            {
-                // Takes the index of the char in the plaintext string, adds that (also works with negative numbers) to the index,
-                // and adds the new char in the array to 'str'
-                char newCh = lowerAlphabetDict[ch];
-                str += newCh;
-                continue;
-            }
-
-            if (Char.IsUpper(ch))
-            {
-                // Same as above but with a different array
-                char newCh = upperAlphabetDict[ch];
-                str += newCh;
                 continue;
             }
 
