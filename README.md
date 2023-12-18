@@ -2,9 +2,9 @@
 
 - This is an application developed using the Mobile Development libraries featured in the Unity Game Engine.
 
-- The app is designed to encrypt and decipher phrases using common encryption methods. Common examples include the Caesar Cipher and Monoalphabetic Cipher (otherwise known as the Substitution Cipher).
+- The app is designed to encrypt and decipher phrases using common encryption methods. Common examples include the [***Caesar Cipher***](https://en.wikipedia.org/wiki/Caesar_cipher) and [***Monoalphabetic Cipher***](https://en.wikipedia.org/wiki/Substitution_cipher) (otherwise known as the _Substitution Cipher_).
 
-- A 'Brute-Force' feature is also being implemented that will be able to utilize smartphones' ever-increasing processing power to crack ciphers, fully offline.
+- A [**Brute-Force**](https://en.wikibooks.org/wiki/Cryptography/Brute_force_attack) feature is also being implemented that will be able to utilize smartphones' ever-increasing processing power to crack ciphers, fully offline.
 
 # Who is doing this?
 
